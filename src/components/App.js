@@ -1,12 +1,14 @@
 import React from 'react'
 import '../styles/App.css';
+import Routes from './Routes';
 const App = () => {
 
 
   return (
-    <div id="main">
+    <div className="App">
+      <Routes />
     </div>
-  )
+  );
 }
 
 
