@@ -1,64 +1,56 @@
-import Header from './Header';
-import { Route } from 'react-router-dom';
-import Search from './Search';
-import AddAnswer from './AddAnswer';
-import { useContext } from 'react';
-
-import React, { useEffect, useState } from 'react';
-
-const MainPage = () => {
-    const [questions, setQuestions] = useState([]);
-    // const [result, setResult] = useState([]);
-
-    useEffect(() => {
-        setQuestions(JSON.parse(localStorage.getItem("questions")) || []);
-    }, []);
+import Header from "./Header";
+import Search from "./Search";
+import AddAnswer from "./AddAnswer";
+import React, { useEffect, useState } from "react";
+import "../styles/MainPage.css";
 
 
-    return (
-        <div className='mainPage'>
+const MainPage = ({ query }) => {
+  const [questions, setQuestions] = useState([]);
 
-            <div className='questionAnswerCard'>
+  useEffect(() => {
+    setQuestions(JSON.parse(localStorage.getItem("questions")) || []);
+  }, []);
+  console.log("'''", query);
+  let questionsToDisplay = questions;
+  if (query.trim() !== "") {
+    questionsToDisplay = questions.filter((item) =>
+      item.text.toLowerCase().includes(query.toLowerCase())
+    );
+  }
 
-                {questions.map(q => (
-
-                    <div key={q.id} className="card">
-                        <ul>
-                            <li>{q.text}</li>
-                        </ul>
-                        <ul>
-                            {q.answers && q.answers.map((a, index) => (
-                                <p key={index}>{a}</p>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
+  return (
+    <div className="mainPage">
+      <div className="questionAnswerCard">
+        {questionsToDisplay.map((q) => {
+          console.log("query", query);
+          console.log("Filtered item: ", q);
+          return (
+            <div key={q.id} className="card">
+              <ul>
+                <li>{q.text}</li>
+              </ul>
+              <p>
+                <ul>
+                  {q.answers &&
+                    q.answers.map((a, index) => <p key={index}>{a}</p>)}
+                </ul>
+              </p>
             </div>
-            <div className='questionPage'>
-                {questions.map((question) => (
-                    <div key={question.id}>
-                        <ul>
-                            <li>{question.text}</li>
-                        </ul>
-                    </div>
-                ))}
-
-            </div>
-            {/* {result.length !== 0 &&
-                result.map((item, index) => (
-                    <div key={index}>
-                        <h3>{item.question}</h3>
-                        <ul>
-                            {item.answers.map((a, index) => (
-                                <li key={index}>{a}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ))} */}
-
-
-        </div>
-    )
-}
+          );
+        })}
+      </div>
+      <div className="questionPage">
+        {questions.map((question) => (
+          <div key={question.id} className="question-card">
+            <ul>
+              <li>{question.text}</li>
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default MainPage;

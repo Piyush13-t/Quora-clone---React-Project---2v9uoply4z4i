@@ -1,0 +1,33 @@
+.mainPage {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .questionAnswerCard {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .questionPage {
+    width: 30%;
+  }
+  
+  .card {
+    width: 30%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .question-card {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+  

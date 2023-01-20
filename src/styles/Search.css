@@ -1,0 +1,13 @@
+#mainpage {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  #search {
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
