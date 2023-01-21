@@ -2,7 +2,7 @@ import Header from "./Header";
 import Search from "./Search";
 import AddAnswer from "./AddAnswer";
 import React, { useEffect, useState } from "react";
-import "../styles/MainPage.css";
+import "../styles/Mainpage.css";
 
 
 const MainPage = ({ query }) => {
@@ -30,12 +30,12 @@ const MainPage = ({ query }) => {
               <ul>
                 <li>{q.text}</li>
               </ul>
-              <p>
+              
                 <ul>
                   {q.answers &&
-                    q.answers.map((a, index) => <p key={index}>{a}</p>)}
+                    q.answers.map((a, index) => <li key={index}>{a}</li>)}
                 </ul>
-              </p>
+              
             </div>
           );
         })}

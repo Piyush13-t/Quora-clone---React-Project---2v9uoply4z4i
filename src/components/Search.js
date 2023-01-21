@@ -12,7 +12,6 @@ function Search({ query, setQuery }) {
       <Link to="/">
         <input type="text" id="search" onChange={onChangeHandle} />
       </Link>
-      {/* <Link to="/">Search</Link> */}
     </div>
   );
 }
